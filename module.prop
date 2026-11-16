@@ -1,0 +1,6 @@
+id=pid_limit_fix
+name=PID 极速限制模块
+version=v1.0
+versionCode=1
+author=You
+description=开机直接压制系统 PID 在 5000 以下，无视检测，不影响模块运行。
