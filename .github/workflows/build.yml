@@ -15,6 +15,7 @@ jobs:
           cp service.sh package/
           cp uninstall.sh package/
           cp customize.sh package/
+          cp post-fs-data.sh package/
           cp bin/pid_wrap package/bin/
 
       - name: Create ZIP
