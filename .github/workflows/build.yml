@@ -1,0 +1,29 @@
+name: BuildPIDLimitZIP
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare Package
+        run: |
+          mkdir -p package/bin
+          cp module.prop package/
+          cp service.sh package/
+          cp uninstall.sh package/
+          cp customize.sh package/
+          cp bin/pid_wrap package/bin/
+
+      - name: Create ZIP
+        run: |
+          cd package
+          zip -r ../PIDLimitFix.zip *
+
+      - name: Upload ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: PIDLimitFix-Module
+          path: PIDLimitFix.zip
